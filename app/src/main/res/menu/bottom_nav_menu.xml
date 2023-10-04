@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/eventFragment"
+        android:title="@string/event_fragment"
+        android:icon="@drawable/ic_home"/>
+    <item android:id="@+id/clubFragment"
+        android:title="@string/clubs"
+        android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/favFragment"
+        android:title="@string/favs"
+        android:icon="@drawable/ic_star"/>
+    <item android:id="@+id/profileFragment"
+        android:title="@string/profile_fragment"
+        android:icon="@drawable/ic_account"/>
+
+
+
+</menu>
