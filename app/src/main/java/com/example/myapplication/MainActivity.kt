@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         binding.apply {
             MainRV.adapter=MainAdapter(SampleData.collections)
 
