@@ -1,5 +1,5 @@
 package com.example.myapplication.model
 
-data class EventModel (
-    val imageUrl: String
+data class EventModel(
+    val imageUrl: Int
 )

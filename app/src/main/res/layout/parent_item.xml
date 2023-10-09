@@ -6,16 +6,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
+        android:id="@+id/eventGenresTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/eventGenresTV"
-        android:text="Title"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Title"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/eventWocheRV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/UnterWocheRV"
+        android:id="@+id/eventWocheRV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
