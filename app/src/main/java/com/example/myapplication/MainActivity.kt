@@ -10,7 +10,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.myapplication.R
 import com.example.myapplication.adapter.MainAdapter
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.utils.SampleData
 
 class MainActivity : AppCompatActivity() {
 

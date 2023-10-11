@@ -7,22 +7,18 @@
 
     <fragment
         android:id="@+id/eventFragment"
-        android:name="com.example.myapplication.EventFragment"
+        android:name="com.example.myapplication.ui.EventFragment"
         android:label="fragment_event"
         tools:layout="@layout/fragment_event" />
     <fragment
         android:id="@+id/clubFragment"
-        android:name="com.example.myapplication.ClubFragment"
+        android:name="com.example.myapplication.ui.ClubFragment"
         android:label="fragment_club"
         tools:layout="@layout/fragment_club" />
     <fragment
         android:id="@+id/favFragment"
-        android:name="com.example.myapplication.FavFragment"
+        android:name="com.example.myapplication.ui.FavFragment"
         android:label="fragment_fav"
         tools:layout="@layout/fragment_fav" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.myapplication.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+
 </navigation>
