@@ -18,6 +18,10 @@ class MainAdapter (private val collection: List<MainModel>
         return CollectionViewHolder(view)
     }
 
+
+
+
+
     override fun onBindViewHolder(holder: MainAdapter.CollectionViewHolder, position: Int) {
         holder.binding.apply {
             val collection = collection[position]
@@ -28,9 +32,15 @@ class MainAdapter (private val collection: List<MainModel>
     }
 
 
+
+
+
     inner class CollectionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val binding = ParentItemBinding.bind(itemView)
     }
+
+
+
 
     override fun getItemCount() = collection.size
 
