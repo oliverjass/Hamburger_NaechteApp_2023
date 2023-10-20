@@ -1,7 +1,7 @@
 package com.example.myapplication.data.dataclasses
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.myapplication.model.EventModel
+import com.example.myapplication.data.model.EventModel
 
 @Entity(tableName = "event_table")
 

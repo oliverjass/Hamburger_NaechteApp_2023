@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.myapplication.R
 import com.example.myapplication.databinding.EventItemBinding
-import com.example.myapplication.model.EventModel
+import com.example.myapplication.data.model.EventModel
 
 class EventAdapter (private val eventModel: List<EventModel>
 ) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {

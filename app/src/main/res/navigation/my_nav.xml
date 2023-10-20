@@ -9,16 +9,33 @@
         android:id="@+id/eventFragment"
         android:name="com.example.myapplication.ui.EventFragment"
         android:label="fragment_event"
-        tools:layout="@layout/fragment_event" />
+        tools:layout="@layout/fragment_event" >
+        <action
+            android:id="@+id/action_eventFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/clubFragment"
-        android:name="com.example.myapplication.ui.ClubFragment"
+        android:id="@+id/locationFragment"
+        android:name="com.example.myapplication.ui.LocationFragment"
         android:label="fragment_club"
-        tools:layout="@layout/fragment_club" />
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_locationFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favFragment"
         android:name="com.example.myapplication.ui.FavFragment"
         android:label="fragment_fav"
         tools:layout="@layout/fragment_fav" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.myapplication.ui.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="locationName"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

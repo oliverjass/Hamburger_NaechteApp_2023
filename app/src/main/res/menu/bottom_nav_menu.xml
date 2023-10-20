@@ -3,7 +3,7 @@
     <item android:id="@+id/eventFragment"
         android:title="@string/event_fragment"
         android:icon="@drawable/ic_home"/>
-    <item android:id="@+id/clubFragment"
+    <item android:id="@+id/locationFragment"
         android:title="@string/clubs"
         android:icon="@drawable/ic_search"/>
     <item android:id="@+id/favFragment"

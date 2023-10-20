@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ParentItemBinding
-import com.example.myapplication.model.MainModel
+import com.example.myapplication.data.model.MainModel
 
 class MainAdapter (private val collection: List<MainModel>
 ) : RecyclerView.Adapter<MainAdapter.CollectionViewHolder>(){
@@ -20,8 +20,6 @@ class MainAdapter (private val collection: List<MainModel>
 
 
 
-
-
     override fun onBindViewHolder(holder: MainAdapter.CollectionViewHolder, position: Int) {
         holder.binding.apply {
             val collection = collection[position]
@@ -32,14 +30,9 @@ class MainAdapter (private val collection: List<MainModel>
     }
 
 
-
-
-
     inner class CollectionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val binding = ParentItemBinding.bind(itemView)
     }
-
-
 
 
     override fun getItemCount() = collection.size

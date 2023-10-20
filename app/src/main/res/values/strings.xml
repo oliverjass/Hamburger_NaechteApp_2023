@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">HN App 2023</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="clubs">Clubs</string>
+    <string name="hello_detail_fragment">Hello detail fragment</string>
     <string name="event_fragment">Events</string>
     <string name="favs">Favs</string>
     <string name="profile_fragment">Profil</string>
@@ -17,4 +16,32 @@
     <string name="cover" />
     <string name="title_place_holder" />
     <string name="autor_placeholder" />
+
+    <string name="locationName1">Baalsaal</string>
+    <string name="locationName2">Docks</string>
+    <string name="locationName3">Frau Holle</string>
+    <string name="locationName4">Berliner Betrüger </string>
+    <string name="locationName5">Fundbuero</string>
+    <string name="locationName6">Turm Bar</string>
+    <string name="locationName7">Clockers</string>
+    <string name="locationName8">Waagenbau</string>
+    <string name="locationName9">Uebel und Gefährlich</string>
+    <string name="locationName10">Nikki Tiger</string>
+    <string name="locationName11">Katze</string>
+    <string name="locationName12">Edelfettwerk</string>
+    <string name="locationName13">DOT Club Hamburg</string>
+    <string name="locationName14">Astra Stube</string>
+    <string name="locationName15">Goldfischglas</string>
+    <string name="locationName16">PAL</string>
+    <string name="locationName17">Süd Pol</string>
+
+    <!-- location Art-->
+
+    <string name="club">Club</string>
+    <string name="bar">Bar</string>
+
+    <!-- btn-->
+    <string name="all">Alle</string>
+    <string name="clubs">Clubs</string>
+    <string name="bars">Bars</string>
 </resources>
