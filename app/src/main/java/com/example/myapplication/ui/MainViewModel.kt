@@ -19,8 +19,8 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
 
     // _locations soll in der RV gefiltert angezeigt werden
-    private val _locations: MutableLiveData<List<Locations>> = MutableLiveData()
     val allLocations: LiveData<List<Locations>> = appRepository.locationsList
+    private val _locations: MutableLiveData<List<Locations>> = MutableLiveData()
 
     fun getLocation(locationId: Int): LiveData<Locations> = appRepository.getLocations(locationId)
     init {

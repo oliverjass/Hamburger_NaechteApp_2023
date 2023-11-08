@@ -29,9 +29,9 @@ class LocationAdapter(
 
 
     override fun getItemViewType(position: Int): Int {
- /*       if (dataset[position].){
-          return barType
-        }*/
+/*        if (dataset[position]){
+          return barType*/
+
         return clubType
     }
 
