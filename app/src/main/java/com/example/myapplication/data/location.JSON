@@ -1,0 +1,51 @@
+[
+  {
+    "locationName": "Waagenbau",
+    "locationArt": "Club",
+    "locationID":1,
+    "locationDescription": "Musik in einem angesagten Nachtclub unter einer Eisenbahnbrücke mit 2 unterirdischen Räumen und Bars.",
+    "adress": "Max-Brauer-Allee 204, 22769 Hamburg",
+    "isBar": false
+
+  },
+  {
+    "locationName": "Baalsaal",
+    "locationArt": "Club",
+    "locationID":2,
+    "locationDescription": "Angesagter, schummrig beleuchteter Nachtclub mit Elektro- und House-Musik sowie Underground-Veranstaltungen.",
+    "adress": "Reeperbahn 25, 20359 Hamburg",
+    "isBar": false
+  },
+  {
+    "locationName": "Docks",
+    "locationArt": "Club",
+    "locationID":3,
+    "locationDescription": "Großer Livemusikclub in einem Kino von ca. 1900, mit Auftritten nationaler und internationaler Künstler.",
+    "adress": "Spielbudenpl. 19, 20359 Hamburg",
+    "isBar": false
+  },
+  {
+    "locationName": "Fundbuero",
+    "locationArt": "Club",
+    "locationID":4,
+    "locationDescription": "Originell in den Räumen eines ehemaligen Fundbüros gelegener Club mit Livemusik und wechselndem DJ-Programm.",
+    "adress": "Stresemannstraße 114, 22769 Hamburg",
+    "isBar": false
+  },
+  {
+    "locationName": "Berliner Betrüger",
+    "locationArt": "Bar",
+    "locationID":5,
+    "locationDescription": "Bier und Cocktails in einer klassischen Kneipe mit hippem Flair, roter Beleuchtung und einigen Tischen im Freien..",
+    "adress": "Juliusstraße 15, 22769 Hamburg",
+    "isBar": true
+  },
+  {
+    "locationName": "Katze",
+    "locationArt": "Bar",
+    "locationID":6,
+    "locationDescription": "Cocktails und Weine in einer zwanglosen Bar mit großer Terrasse und Happy-Hour-Angebot.",
+    "adress": "Schulterblatt 88, 20357 Hamburg",
+    "isBar": true
+  }
+]

@@ -1,8 +1,24 @@
 package com.example.myapplication.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.squareup.moshi.Json
+
+@Entity
 data class Locations (
-    val stringResource1: Int,
-    val stringResource2: Int,
-    val imageResource: Int,
-    val isBar: Boolean
+    @Json(name = "locationID")
+    @PrimaryKey
+    val locationID: Int,
+    @Json(name = "locationName")
+    val locationName: String,
+    @Json(name = "locationArt")
+    val locationArt: String,
+    @Json(name = "locationDescription")
+    val locationDescription: String
+    //@Json(name = "isBar")
+    //val isBar: Boolean
+
+
+
+
 )

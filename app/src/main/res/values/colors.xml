@@ -5,4 +5,8 @@
     <color name="red">#FF1100</color>
     <color name="purple">#A413FF</color>
     <color name="blue">#0016A3</color>
+    <color name="hnblue">#1C232F</color>
+    <color name="hngrey">#D9D9D9</color>
+    <color name="hnblue2">#3C4B64</color>
+
 </resources>

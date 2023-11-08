@@ -13,7 +13,7 @@ import com.example.myapplication.databinding.ClubItemBinding
 import com.example.myapplication.ui.LocationFragmentDirections
 
 class LocationAdapter(
-    private val dataset: List<Locations>,
+    private var dataset: List<Locations>,
     private val context: Context,
     private val navController: NavController
 ): RecyclerView.Adapter<ViewHolder>() {
@@ -21,15 +21,24 @@ class LocationAdapter(
     private val clubType = 1
     private val barType = 2
 
+    val stringNumber = ""
+
+
     class ClubViewHolder(val binding: ClubItemBinding): ViewHolder(binding.root)
     class BarViewHolder(val binding: BarItemBinding): ViewHolder(binding.root)
 
 
     override fun getItemViewType(position: Int): Int {
-        if (dataset[position].isBar){
-            return barType
-        }
+ /*       if (dataset[position].){
+          return barType
+        }*/
         return clubType
+    }
+
+    fun newData(newList: List<Locations>){
+        dataset = newList
+        notifyDataSetChanged()
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -57,13 +66,18 @@ class LocationAdapter(
          */
 
 
+
+
+
+
+
         if (holder is ClubViewHolder){
-            holder.binding.tvClubName.text = context.getString(item.stringResource1)
-            holder.binding.tvLocationArt.text = context.getString(item.stringResource2)
-            holder.binding.imageView.setImageResource(item.imageResource)
+            holder.binding.tvClubName.text = item.locationName
+            holder.binding.tvLocationArt.text = item.locationArt
+            //holder.binding.imageView.setImageResource(item.imageResource)
             holder.binding.clubCard.setOnClickListener {
 
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.stringResource1))
+                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
 
                 /*detailIntent.putExtra("stringResource1",item.stringResource1)
                 detailIntent.putExtra("stringResource2",item.stringResource2)
@@ -74,12 +88,12 @@ class LocationAdapter(
             }
         } else if (holder is BarViewHolder){
 
-            holder.binding.tvBarName.text = context.getString(item.stringResource1)
-            holder.binding.tvLocationArt.text = context.getString(item.stringResource2)
-            holder.binding.imageView.setImageResource(item.imageResource)
+            holder.binding.tvBarName.text = item.locationName
+            holder.binding.tvLocationArt.text = item.locationArt
+            //holder.binding.imageView.setImageResource(item.imageResource)
             holder.binding.barCard.setOnClickListener {
 
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.stringResource1))
+                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
                 /*
                 detailIntent.putExtra("stringResource1",item.stringResource1)
                 detailIntent.putExtra("stringResource2",item.stringResource2)

@@ -1,50 +1,564 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/hnblue"
     tools:context=".ui.DetailFragment">
 
 
-    <ImageView
-        android:id="@+id/iv_imgDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:background="?attr/colorPrimary"
-        android:padding="16dp"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hnblue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baalsal"
-        tools:ignore="hardcode" />
+        tools:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tv_location_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/locationName1"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_imgDetail" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_location_art_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="beschreibung"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location_detail" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardBackgroundColor="#19000000"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_opends">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="377dp"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tv_montag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Montag"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tv_Closed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Geschlossen"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tv_dienstag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Dienstag"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_montag" />
+
+                            <TextView
+                                android:id="@+id/tv_dienstag2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Geschlossen"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_Closed" />
+
+                            <LinearLayout
+                                android:id="@+id/linearLayout"
+                                android:layout_width="10dp"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.0"
+                                tools:ignore="hardcodetText"></LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_dienstag3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Geschlossen"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag2" />
+
+                            <TextView
+                                android:id="@+id/tv_dienstag4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="00:00 - 06:00"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag3" />
+
+                            <TextView
+                                android:id="@+id/tv_dienstag5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="00:00 - 06:00"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag4" />
+
+                            <TextView
+                                android:id="@+id/tv_dienstag6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="00:00 - 06:00"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag5" />
+
+                            <TextView
+                                android:id="@+id/tv_dienstag7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Geschlossen"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag6" />
+
+                            <TextView
+                                android:id="@+id/tv_mittwoch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Mittwoch"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag" />
+
+                            <TextView
+                                android:id="@+id/tv_Donnerstag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Donnerstag"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_mittwoch" />
+
+                            <TextView
+                                android:id="@+id/tv_Freitag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Freitag"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_Donnerstag" />
+
+                            <TextView
+                                android:id="@+id/tv_Samstag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Samstag"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_Freitag" />
+
+                            <TextView
+                                android:id="@+id/tv_Sonntag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="64dp"
+                                android:text="Sonntag"
+                                android:textColor="@color/hngrey"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_Samstag" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView2"
+                    android:layout_width="440dp"
+                    android:layout_height="284dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_gallerie">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="0dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="180dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginBottom="40dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/baalsal" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="180dp"
+                            android:layout_marginBottom="50dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/baalsal" />
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="180dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="50dp"
+                            android:layout_marginBottom="50dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/baalsal" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+
+                <ImageView
+                    android:id="@+id/iv_imgDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/baalsal"
+                    tools:ignore="hardcode" />
+
+                <TextView
+                    android:id="@+id/tv_opends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Öffnungszeiten"
+                    android:textColor="@color/hngrey"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+                <TextView
+                    android:id="@+id/tv_location_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/locationName1"
+                    android:textColor="@color/hngrey"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_imgDetail" />
+
+                <TextView
+                    android:id="@+id/tv_location_art_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Club"
+                    android:textColor="@color/hngrey"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_detail" />
+
+                <TextView
+                    android:id="@+id/tv_gallerie"
+                    android:layout_width="371dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Gallerie"
+                    android:textColor="@color/hngrey"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="363dp"
+                    android:layout_height="184dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Der Keller-Club Baalsaal sorgt mit dem hauseigene Label „Jeudi“ für guten, undergroundigen TechHouse mit Künstlern wie Doctor Dru. Hier treffen sich Hipster und Fashionvictims zu Techno und Hosue. Öffnungszeiten: Donnerstags bis sonnabends. Eintritt: 8 bis 10 Euro.
+                    --the english version--  The Keller-Club provides with the in-house label „Jeudi“ for good underground TechHouse with artists like Doctor Dru. This is where hipster and fashion victories meet techno and hosue. Opening hours: Thursdays to Saturdays. Admission: 8 to 10 Euro "
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.485"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_decriptionTitle" />
+
+                <TextView
+                    android:id="@+id/tv_decriptionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Kurzbeschreibung"
+                    android:textColor="@color/hngrey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+                <TextView
+                    android:id="@+id/tv_Eintritt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Reeperbahn 25, St. Pauli"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/adress"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Eintritt" />
+
+                <TextView
+                    android:id="@+id/tv_music"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="House, Techno"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/music"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Eintritt2" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="4,0"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView11"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_music" />
+
+                <TextView
+                    android:id="@+id/daytime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Do - Samstag "
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
+
+                <TextView
+                    android:id="@+id/tv_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:text=" 0176 70486814"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView9"
+                    app:layout_constraintTop_toBottomOf="@+id/daytime" />
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text=" contact@baalsaal.info"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView10"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel" />
+
+                <TextView
+                    android:id="@+id/tv_email3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Facebook"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+                <TextView
+                    android:id="@+id/tv_Eintritt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="8 -10 €"
+                    android:textColor="@color/hngrey"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/price"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
+
+                <ImageView
+                    android:id="@+id/price"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_eintritt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
+
+                <ImageView
+                    android:id="@+id/adress"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/price" />
+
+                <ImageView
+                    android:id="@+id/music"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_musicnote"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/adress" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_bewertung"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/music" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@android:drawable/ic_dialog_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_phone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="29dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_email"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

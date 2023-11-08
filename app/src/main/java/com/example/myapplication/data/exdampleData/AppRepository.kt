@@ -1,15 +1,58 @@
 package com.example.myapplication.data.exdampleData
 
+import android.content.ContentValues.TAG
+import android.location.Location
+import android.nfc.Tag
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.R
-import com.example.myapplication.data.dataclasses.EventData
-import com.example.myapplication.data.model.EventModel
+import com.example.myapplication.data.local.AppDataBaseDao
+import com.example.myapplication.data.model.LocationData
 import com.example.myapplication.data.model.Locations
+import com.example.myapplication.data.remote.LocationApi
+import com.example.myapplication.data.remote.LocationApiService
+import retrofit2.http.GET
 
-class AppRepository {
+class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
+
+    val allLocations: LiveData<List<Locations>> = dao.getAllLocations()
+    private val _locationsList: MutableLiveData<List<Locations>> = MutableLiveData<List<Locations>>()
+    fun getLocations(locationId: Int): LiveData<Locations> = dao.getLocationById(locationId)
+
+
+    suspend fun insertLocation(locations: Locations){
+        try {
+            dao.insertLocation(locations)
+        } catch (ex: Exception){
+            Log.e("Repository","$ex")
+        }
+    }
+
+    val locationsList: LiveData<List<Locations>>
+        get() = _locationsList
+
+    suspend fun loadLocationListRepository(){
+        val loadedLocations = api.getLocationsFromAPI()
+        Log.d("ApiData","hier ist die location $loadedLocations")
+        _locationsList.postValue(loadedLocations)
+    }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // Livedata aus Dao erstellen
 
     /*
     val events: List<EventData>
@@ -20,6 +63,8 @@ class AppRepository {
      */
 
     //region Datasource
+
+    /*
     private fun loadEvents(): List<EventData> {
         return listOf(
             EventData (
@@ -73,10 +118,12 @@ class AppRepository {
         )
     }
 
-    fun loadLoactions(): List<Locations>{
+     */
 
-        val locations = listOf(
-            Locations(R.string.locationName1,R.string.club, R.drawable.baalsal,false),
+    //fun loadLoactions(): List<Locations>{
+
+        /*val locations = listOf(
+            Locations("", R.drawable.baalsal,1,"",""),
             Locations(R.string.locationName2,R.string.club, R.drawable.docks,false),
             Locations(R.string.locationName3,R.string.club, R.drawable.frau_holle,false),
             Locations(R.string.locationName4,R.string.bar, R.drawable.berliner_betrueger,true),
@@ -96,6 +143,17 @@ class AppRepository {
         )
         return locations
     }
+
+         */
+
+
+
+    /*
+    fun loadLoactions():List<LocationData>{
+        val locations = listOf(
+            Locations("","",1,"")
+        )
+    }
     // endregion
 
     fun loadBars(): List<Locations>{
@@ -105,4 +163,6 @@ class AppRepository {
     fun loadClubs(): List<Locations>{
         return loadLoactions().filter { !it.isBar }
     }
+
+     */
 }
