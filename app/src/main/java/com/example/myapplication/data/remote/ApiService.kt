@@ -1,13 +1,11 @@
 package com.example.myapplication.data.remote
 
-import com.example.myapplication.data.model.LocationData
-import com.example.myapplication.data.model.Locations
+import com.example.myapplication.data.datamodels.Locations
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 val BASE_URL = "https://public.syntax-institut.de/apps/batch9/OliverJass/"
 

@@ -1,7 +1,6 @@
 package com.example.myapplication.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +9,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.adapter.LocationAdapter
-import com.example.myapplication.data.model.Locations
-import com.example.myapplication.databinding.FragmentLocationBinding
+import com.example.myapplication.data.datamodels.Locations
+import com.example.myapplication.databinding.FragmentHomeBinding
 
-class LocationFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var binding: FragmentLocationBinding
+    private lateinit var binding: FragmentHomeBinding
     private val locationId: Int = 1
 
     override fun onCreateView(
@@ -24,7 +23,8 @@ class LocationFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLocationBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -45,6 +45,20 @@ class LocationFragment : Fragment() {
             navController = findNavController()
         )
     }
+
+
+
+
+
+
+
+
+
+
+
+/*    private fun setRecyclerView() {
+        binding.recyclerViewCollections.adapter = CollectionsAdapter(CollectionData)
+    }*/
 
 
 

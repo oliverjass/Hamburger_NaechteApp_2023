@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.example.myapplication.data.exdampleData.AppRepository
+import com.example.myapplication.data.AppRepository
 import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var appRepository: AppRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,11 +35,13 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
 
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
 
 
 }

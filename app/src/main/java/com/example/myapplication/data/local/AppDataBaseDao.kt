@@ -1,16 +1,11 @@
 package com.example.myapplication.data.local
 
-import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.myapplication.data.model.LocationData
-import com.example.myapplication.data.model.Locations
-import retrofit2.http.GET
-
+import com.example.myapplication.data.datamodels.Locations
 
 @Dao
 interface AppDataBaseDao {

@@ -1,6 +1,5 @@
-package com.example.myapplication.data.model
+package com.example.myapplication.data.datamodels
 
-import androidx.room.Entity
 import com.squareup.moshi.Json
 
 

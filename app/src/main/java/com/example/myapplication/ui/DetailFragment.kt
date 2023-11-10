@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDetailBinding
-import com.example.myapplication.databinding.FragmentLocationBinding
+import com.example.myapplication.databinding.FragmentHomeBinding
 import kotlin.math.log
 
 class DetailFragment : Fragment() {

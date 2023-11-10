@@ -1,18 +1,11 @@
-package com.example.myapplication.data.exdampleData
+package com.example.myapplication.data
 
-import android.content.ContentValues.TAG
-import android.location.Location
-import android.nfc.Tag
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.myapplication.R
 import com.example.myapplication.data.local.AppDataBaseDao
-import com.example.myapplication.data.model.LocationData
-import com.example.myapplication.data.model.Locations
-import com.example.myapplication.data.remote.LocationApi
+import com.example.myapplication.data.datamodels.Locations
 import com.example.myapplication.data.remote.LocationApiService
-import retrofit2.http.GET
 
 class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
     private val _locationIdList = MutableLiveData<List<Int>>()

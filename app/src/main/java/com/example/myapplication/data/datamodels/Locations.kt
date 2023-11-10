@@ -1,4 +1,4 @@
-package com.example.myapplication.data.model
+package com.example.myapplication.data.datamodels
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -31,13 +31,17 @@ data class Locations (
     val phoneNr: String,
     @Json(name = "webLink")
     val webLink: String,
-    @Json(name = "imageResource")
-    val imageResource: String
 
-/*    @Json(name = "imageResource")
-    val imageResource: String*/
-    //@Json(name = "isBar")
-    //val isBar: Boolean
+    // Bilder
+    @Json(name = "imageResource")
+    val imageResource: String,
+    @Json(name = "locationImg1")
+    val locationImg1: String,
+    @Json(name = "locationImg2")
+    val locationImg2: String,
+    @Json(name = "locationImg3")
+    val locationImg3: String
+
 
 
 

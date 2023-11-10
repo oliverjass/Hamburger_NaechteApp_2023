@@ -3,12 +3,10 @@ package com.example.myapplication.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.exdampleData.AppRepository
+import com.example.myapplication.data.AppRepository
 import com.example.myapplication.data.local.getDatabase
-import com.example.myapplication.data.model.Locations
+import com.example.myapplication.data.datamodels.Locations
 import com.example.myapplication.data.remote.LocationApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,15 +34,6 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
 
     // allLocations ungefiltert
-
-
-
-
-
-
-
-
-
 
 
 

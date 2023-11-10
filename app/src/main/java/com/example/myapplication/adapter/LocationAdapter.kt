@@ -1,21 +1,14 @@
 package com.example.myapplication.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.myapplication.R
-import com.example.myapplication.data.model.Locations
+import com.example.myapplication.data.datamodels.Locations
 import com.example.myapplication.databinding.LocationItemBinding
-import com.example.myapplication.ui.LocationFragmentDirections
+import com.example.myapplication.ui.HomeFragmentDirections
 //import com.squareup.picasso.Picasso
-import kotlin.math.log
 
 class LocationAdapter(
     private var dataset: List<Locations>,
@@ -45,7 +38,7 @@ class LocationAdapter(
             tvLocationMusic.text = item.locationMusic
 
             locationCard.setOnClickListener {
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
+                navController.navigate(HomeFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
             }
         }
     }
