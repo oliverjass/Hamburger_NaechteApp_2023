@@ -16,13 +16,12 @@ import kotlinx.coroutines.launch
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     val dao = getDatabase(app).dao
     val appRepository = AppRepository(LocationApi.retrofitService,dao )
+    val image = appRepository.image
 
-
-    // _locations soll in der RV gefiltert angezeigt werden
-    val allLocations: LiveData<List<Locations>> = appRepository.locationsList
-    private val _locations: MutableLiveData<List<Locations>> = MutableLiveData()
+    val allLocations: LiveData<List<Locations>> = appRepository.allLocations
 
     fun getLocation(locationId: Int): LiveData<Locations> = appRepository.getLocations(locationId)
+
     init {
         loadLocationListVM()
     }
@@ -34,7 +33,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     }
 
 
-    val locations = appRepository.locationsList
+
 
     // allLocations ungefiltert
 

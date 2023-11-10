@@ -7,7 +7,9 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.myapplication.data.model.LocationData
 import com.example.myapplication.data.model.Locations
+import retrofit2.http.GET
 
 
 @Dao
@@ -18,6 +20,9 @@ interface AppDataBaseDao {
 
     @Query("SELECT * FROM Locations WHERE locationID =:locationID")
     fun getLocationById(locationID: Int) : LiveData<Locations>
+
+/*    @GET("locations")
+    suspend fun getAllLocationIds(): LocationData*/
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertLocation(locations: Locations)

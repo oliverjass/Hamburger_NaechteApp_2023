@@ -25,8 +25,6 @@ interface LocationApiService {
     @GET("locations.json")
     suspend fun getLocationsFromAPI(): List<Locations>
 
-
-
 }
 
 object LocationApi {

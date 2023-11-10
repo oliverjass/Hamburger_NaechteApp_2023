@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.adapter.LocationAdapter
+import com.example.myapplication.data.model.Locations
 import com.example.myapplication.databinding.FragmentLocationBinding
 
 class LocationFragment : Fragment() {
@@ -35,25 +36,46 @@ class LocationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.allLocations.observe(viewLifecycleOwner){
-            Log.d("Datenbanktest","$it")
-        }
 
-        /*val adapter = LocationAdapter(emptyList(it))
-        binding.rvLocations.adapter = adapter*/
+        viewModel.allLocations.observe(viewLifecycleOwner) { locations ->
+
+            val locationTechno = locations.filter {
+                it.locationMusic == "Techno"
+            }
+
+            val locationBlack = locations.filter {
+                it.locationMusic == "Black"
+            }
+
+            val locationBar = locations.filter {
+                it.locationArt == "Bar"
+            }
+
+            val locationRock = locations.filter {
+                it.locationMusic == "Rock"
+            }
 
 
-
-
-/*        viewModel.allLocations.observe(viewLifecycleOwner){
-            adapter.newData(it)
-        }*/
-
-        binding.rvLocations.hasFixedSize()
-
-        viewModel.locations.observe(viewLifecycleOwner) { locations ->
             binding.rvLocations.adapter = LocationAdapter(
-                dataset = locations,
+                dataset = locationTechno,
+                context = requireContext(),
+                navController = findNavController()
+            )
+
+            binding.rvLocations1.adapter = LocationAdapter(
+                dataset = locationRock,
+                context = requireContext(),
+                navController = findNavController()
+            )
+
+            binding.rvLocations2.adapter = LocationAdapter(
+                dataset = locationBlack,
+                context = requireContext(),
+                navController = findNavController()
+            )
+
+            binding.rvLocations3.adapter = LocationAdapter(
+                dataset = locationBar,
                 context = requireContext(),
                 navController = findNavController()
             )

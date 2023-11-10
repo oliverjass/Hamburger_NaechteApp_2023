@@ -14,7 +14,28 @@ data class Locations (
     @Json(name = "locationArt")
     val locationArt: String,
     @Json(name = "locationDescription")
-    val locationDescription: String
+    val locationDescription: String,
+    @Json(name = "music")
+    val locationMusic: String,
+    @Json(name = "adress")
+    val adress: String,
+    @Json(name = "price")
+    val price: String,
+    @Json(name = "openingHours")
+    val openingHours: String,
+    @Json(name = "rating")
+    val rating: String,
+    @Json(name = "email")
+    val email: String,
+    @Json(name = "phoneNr")
+    val phoneNr: String,
+    @Json(name = "webLink")
+    val webLink: String,
+    @Json(name = "imageResource")
+    val imageResource: String
+
+/*    @Json(name = "imageResource")
+    val imageResource: String*/
     //@Json(name = "isBar")
     //val isBar: Boolean
 

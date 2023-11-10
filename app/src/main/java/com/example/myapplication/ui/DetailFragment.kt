@@ -32,6 +32,14 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val locationname = getString(args.locationName)
         Log.d("LocationnameTest",locationname)
+
+        val locationId: Int = requireArguments().getInt("location_id")
+        val location = viewModel.loadLocationListVM()
+
+
+        if (locationId != null){
+
+        }
     }
 
 }

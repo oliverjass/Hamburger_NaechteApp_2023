@@ -15,10 +15,14 @@ import com.example.myapplication.data.remote.LocationApiService
 import retrofit2.http.GET
 
 class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
+    private val _locationIdList = MutableLiveData<List<Int>>()
 
     val allLocations: LiveData<List<Locations>> = dao.getAllLocations()
-    private val _locationsList: MutableLiveData<List<Locations>> = MutableLiveData<List<Locations>>()
     fun getLocations(locationId: Int): LiveData<Locations> = dao.getLocationById(locationId)
+
+    private val _image = MutableLiveData<Locations>()
+    val image: LiveData<Locations>
+        get() = _image
 
 
     suspend fun insertLocation(locations: Locations){
@@ -29,14 +33,36 @@ class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
         }
     }
 
-    val locationsList: LiveData<List<Locations>>
-        get() = _locationsList
+
+
+
+
+
+/*    suspend fun getLocationsIds() {
+        try {
+            _locationIdList.value = api.getLocationsFromAPI()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error loading all data from API: $e")
+        }
+    }*/
+
+
+
+
+
+
 
     suspend fun loadLocationListRepository(){
         val loadedLocations = api.getLocationsFromAPI()
         Log.d("ApiData","hier ist die location $loadedLocations")
-        _locationsList.postValue(loadedLocations)
+        for( location in loadedLocations){
+            insertLocation(location)
+        }
+        /*insertLocation(loadedLocations)*/
+
+
     }
+
 
 
 
