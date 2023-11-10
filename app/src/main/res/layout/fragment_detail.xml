@@ -38,7 +38,7 @@
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_opends">
+                    app:layout_constraintTop_toBottomOf="@+id/tv_öffnungszeiten">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/tv_montag" />
 
                             <TextView
-                                android:id="@+id/tv_dienstag2"
+                                android:id="@+id/tv_closed2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="64dp"
@@ -110,7 +110,7 @@
                                 tools:ignore="hardcodetText"></LinearLayout>
 
                             <TextView
-                                android:id="@+id/tv_dienstag3"
+                                android:id="@+id/tv_closed3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="64dp"
@@ -119,10 +119,10 @@
                                 android:textColor="@color/hngrey"
                                 android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag2" />
+                                app:layout_constraintTop_toBottomOf="@+id/tv_closed2" />
 
                             <TextView
-                                android:id="@+id/tv_dienstag4"
+                                android:id="@+id/tv_uhr1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="64dp"
@@ -131,10 +131,10 @@
                                 android:textColor="@color/hngrey"
                                 android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag3" />
+                                app:layout_constraintTop_toBottomOf="@+id/tv_closed3" />
 
                             <TextView
-                                android:id="@+id/tv_dienstag5"
+                                android:id="@+id/tv_uhr2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="64dp"
@@ -143,10 +143,10 @@
                                 android:textColor="@color/hngrey"
                                 android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag4" />
+                                app:layout_constraintTop_toBottomOf="@+id/tv_uhr1" />
 
                             <TextView
-                                android:id="@+id/tv_dienstag6"
+                                android:id="@+id/tv_uhr3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="64dp"
@@ -155,10 +155,10 @@
                                 android:textColor="@color/hngrey"
                                 android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag5" />
+                                app:layout_constraintTop_toBottomOf="@+id/tv_uhr2" />
 
                             <TextView
-                                android:id="@+id/tv_dienstag7"
+                                android:id="@+id/tv_closed4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="64dp"
@@ -167,7 +167,7 @@
                                 android:textColor="@color/hngrey"
                                 android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_dienstag6" />
+                                app:layout_constraintTop_toBottomOf="@+id/tv_uhr3" />
 
                             <TextView
                                 android:id="@+id/tv_mittwoch"
@@ -301,7 +301,7 @@
                     tools:ignore="hardcode" />
 
                 <TextView
-                    android:id="@+id/tv_opends"
+                    android:id="@+id/tv_öffnungszeiten"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -312,7 +312,7 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_kurzbeschreibung" />
 
                 <TextView
                     android:id="@+id/tv_location_detail"
@@ -355,7 +355,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
                 <TextView
-                    android:id="@+id/tv_description"
+                    android:id="@+id/tv_kurzbeschreibung"
                     android:layout_width="363dp"
                     android:layout_height="184dp"
                     android:layout_marginStart="16dp"
@@ -368,10 +368,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.485"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_decriptionTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title_kurzbeschreibung" />
 
                 <TextView
-                    android:id="@+id/tv_decriptionTitle"
+                    android:id="@+id/tv_title_kurzbeschreibung"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -379,10 +379,10 @@
                     android:text="Kurzbeschreibung"
                     android:textColor="@color/hngrey"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_webLink" />
 
                 <TextView
-                    android:id="@+id/tv_Eintritt2"
+                    android:id="@+id/tv_adress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -390,7 +390,7 @@
                     android:text="Reeperbahn 25, St. Pauli"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/adress"
+                    app:layout_constraintStart_toEndOf="@+id/img_adress"
                     app:layout_constraintTop_toBottomOf="@+id/tv_Eintritt" />
 
                 <TextView
@@ -402,11 +402,11 @@
                     android:text="House, Techno"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/music"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_Eintritt2" />
+                    app:layout_constraintStart_toEndOf="@+id/img_genre"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_adress" />
 
                 <TextView
-                    android:id="@+id/rating"
+                    android:id="@+id/tv_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -414,11 +414,11 @@
                     android:text="4,0"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView11"
+                    app:layout_constraintStart_toEndOf="@+id/img_rating"
                     app:layout_constraintTop_toBottomOf="@+id/tv_music" />
 
                 <TextView
-                    android:id="@+id/daytime"
+                    android:id="@+id/tv_daytime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -426,11 +426,11 @@
                     android:text="Do - Samstag "
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintStart_toEndOf="@+id/img_clock"
                     app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
 
                 <TextView
-                    android:id="@+id/tv_tel"
+                    android:id="@+id/tv_phoneNr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -438,8 +438,8 @@
                     android:text=" 0176 70486814"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView9"
-                    app:layout_constraintTop_toBottomOf="@+id/daytime" />
+                    app:layout_constraintStart_toEndOf="@+id/img_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_daytime" />
 
                 <TextView
                     android:id="@+id/tv_email"
@@ -450,11 +450,11 @@
                     android:text=" contact@baalsaal.info"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView10"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_tel" />
+                    app:layout_constraintStart_toEndOf="@+id/img_email"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_phoneNr" />
 
                 <TextView
-                    android:id="@+id/tv_email3"
+                    android:id="@+id/tv_webLink"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -462,7 +462,7 @@
                     android:text="Facebook"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView12"
+                    app:layout_constraintStart_toEndOf="@+id/img_webLink"
                     app:layout_constraintTop_toBottomOf="@+id/tv_email" />
 
                 <TextView
@@ -474,11 +474,11 @@
                     android:text="8 -10 €"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/price"
+                    app:layout_constraintStart_toEndOf="@+id/img_price"
                     app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
 
                 <ImageView
-                    android:id="@+id/price"
+                    android:id="@+id/img_price"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="24dp"
@@ -488,47 +488,47 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
 
                 <ImageView
-                    android:id="@+id/adress"
+                    android:id="@+id/img_adress"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_location"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/price" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_price" />
 
                 <ImageView
-                    android:id="@+id/music"
+                    android:id="@+id/img_genre"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_musicnote"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/adress" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_adress" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/img_rating"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_bewertung"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/music" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_genre" />
 
                 <ImageView
-                    android:id="@+id/imageView12"
+                    android:id="@+id/img_webLink"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="210dp"
                     android:layout_marginTop="8dp"
                     android:src="@android:drawable/ic_dialog_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_email" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/img_clock"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="210dp"
@@ -538,24 +538,24 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_location_art_detail" />
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/img_phone"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="210dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_phone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_clock" />
 
                 <ImageView
-                    android:id="@+id/imageView10"
+                    android:id="@+id/img_email"
                     android:layout_width="29dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="210dp"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/ic_email"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_phone" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

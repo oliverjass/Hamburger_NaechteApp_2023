@@ -24,10 +24,12 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val locationname = getString(args.locationName)
@@ -36,10 +38,6 @@ class DetailFragment : Fragment() {
         val locationId: Int = requireArguments().getInt("location_id")
         val location = viewModel.loadLocationListVM()
 
-
-        if (locationId != null){
-
-        }
     }
 
 }

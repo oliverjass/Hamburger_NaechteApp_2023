@@ -19,49 +19,108 @@ import kotlin.math.log
 
 class LocationAdapter(
     private var dataset: List<Locations>,
-//    val openImageFunction: (String) -> Unit,
     private val context: Context,
     private val navController: NavController
-) : RecyclerView.Adapter<ViewHolder>() {
+) : RecyclerView.Adapter<LocationAdapter.ItemViewHolder>() {
 
-    private val technoType = 1
-    private val rockType = 2
-    private val blackType = 3
-    private val barType = 4
+    private val TECHNO_TYPE = 1
+    private val ROCK_TYPE = 2
+    private val BLACK_TYPE = 3
+    private val BAR_TYPE = 4
 
     val stringNumber = ""
+    inner class ItemViewHolder(val binding: LocationItemBinding) : RecyclerView.ViewHolder(binding.root)
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val binding = LocationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ItemViewHolder(binding)
+    }
 
-
-/*    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val image: ImageView = view.findViewById(R.id.imageView)
-        val deleteButton: ImageView = view.findViewById(R.id.imageView)
-    }*/
-    class TechnoViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-    class BlackViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-    class RockViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-    class BarViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-
-
-    override fun getItemViewType(position: Int): Int {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
-        return when (item.locationMusic){
-            "Techno" -> technoType
-            "Rock" -> rockType
-            "Black" -> blackType
-            "Bar" -> barType
-            else -> technoType
+        with(holder.binding) {
+            tvLocationName.text = item.locationName
+            tvLocationArt.text = item.locationArt
+            tvLocationMusic.text = item.locationMusic
+
+            locationCard.setOnClickListener {
+                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
+            }
         }
     }
 
-    fun newData(newList: List<Locations>){
-        dataset = newList
-        notifyDataSetChanged()
 
+    override fun getItemViewType(position: Int): Int {
+        return when (dataset[position].locationMusic) {
+            "Techno" -> TECHNO_TYPE
+            "Rock" -> ROCK_TYPE
+            "Black" -> BLACK_TYPE
+            "Bar" -> BAR_TYPE
+            else -> TECHNO_TYPE
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    fun newData(newList: List<Locations>) {
+        dataset = newList
+        notifyDataSetChanged()
+    }
+
+    companion object {
+        const val TECHNO_TYPE = 1
+        const val ROCK_TYPE = 2
+        const val BLACK_TYPE = 3
+        const val BAR_TYPE = 4
+    }
+
+    override fun getItemCount(): Int {
+        //Log.d("LOCATIONDATASET","$dataset")
+        return dataset.size
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*fun newData(newList: List<Locations>){
+    dataset = newList
+    notifyDataSetChanged()
+
+}*/
+
+    /*    class TechnoViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
+    class BlackViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
+    class RockViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
+    class BarViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)*/
+
+
+    /*    override fun getItemViewType(position: Int): Int {
+            val item = dataset[position]
+
+            return when (item.locationMusic){
+                "Techno" -> technoType
+                "Rock" -> rockType
+                "Black" -> blackType
+                "Bar" -> barType
+                else -> technoType
+            }
+        }*/
+
+/*    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if (viewType == technoType){
             val binding = LocationItemBinding
                 .inflate(LayoutInflater.from(parent.context),parent,false)
@@ -82,21 +141,32 @@ class LocationAdapter(
             .inflate(LayoutInflater.from(parent.context),parent,false)
         BarViewHolder(binding)
     }
-    }
+    }*/
 
-    override fun getItemCount(): Int {
-        Log.d("LOCATIONDATASET","$dataset")
-        return dataset.size
-    }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+
+
+/*    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
+        with(holder.binding) {
+            tvLocationName.text = item.locationName
+            tvLocationArt.text = item.locationArt
+            tvLocationMusic.text = item.locationMusic
 
+            locationCard.setOnClickListener {
+                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
+            }
+        }
+    }*/
+
+/*    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = dataset[position]
         //Beim Haupt project eerstmal auskommentieren
-        /*
+        *//*
         val detailIntent = Intent(context,DetailFragment::class.java)
-         */
+         *//*
 
         if (holder is TechnoViewHolder){
             holder.binding.tvLocationName.text = item.locationName
@@ -104,19 +174,19 @@ class LocationAdapter(
             holder.binding.tvLocationMusic.text = item.locationMusic
 
             //coil benutzen um bild zu laden
-       /*     holder.binding.imageView.load(""){
+       *//*     holder.binding.imageView.load(""){
 
-            }*/
+            }*//*
             holder.binding.locationCard.setOnClickListener {
 
                 navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
 
-                /*detailIntent.putExtra("stringResource1",item.stringResource1)
+                *//*detailIntent.putExtra("stringResource1",item.stringResource1)
                 detailIntent.putExtra("stringResource2",item.stringResource2)
                 detailIntent.putExtra("imageResource",item.imageResource)
                 //Beim Haupt project eerstmal auskommentieren
                 //context.startActivity(detailIntent)
-                 */
+                 *//*
             }
         }    else  if (holder is RockViewHolder){
             holder.binding.tvLocationName.text = item.locationName
@@ -127,12 +197,12 @@ class LocationAdapter(
 
                 navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
 
-                /*detailIntent.putExtra("stringResource1",item.stringResource1)
+                *//*detailIntent.putExtra("stringResource1",item.stringResource1)
                 detailIntent.putExtra("stringResource2",item.stringResource2)
                 detailIntent.putExtra("imageResource",item.imageResource)
                 //Beim Haupt project eerstmal auskommentieren
                 //context.startActivity(detailIntent)
-                 */
+                 *//*
             }
         } else  if (holder is BlackViewHolder) {
             holder.binding.tvLocationName.text = item.locationName
@@ -147,9 +217,9 @@ class LocationAdapter(
                     )
                 )
 
-/*                detailIntent.putExtra("stringResource1",item.stringResource1)
+*//*                detailIntent.putExtra("stringResource1",item.stringResource1)
                 detailIntent.putExtra("stringResource2",item.stringResource2)
-                detailIntent.putExtra("imageResource",item.imageResource)*/
+                detailIntent.putExtra("imageResource",item.imageResource)*//*
                 //Beim Haupt project eerstmal auskommentieren
                 //context.startActivity(detailIntent)
 
@@ -163,12 +233,12 @@ class LocationAdapter(
             holder.binding.locationCard.setOnClickListener {
 
                 navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
-/*                                detailIntent.putExtra("stringResource1",item.stringResource1)
+*//*                                detailIntent.putExtra("stringResource1",item.stringResource1)
                                 detailIntent.putExtra("stringResource2",item.stringResource2)
-                                detailIntent.putExtra("imageResource",item.imageResource)*/
+                                detailIntent.putExtra("imageResource",item.imageResource)*//*
                 //context.startActivity(detailIntent)
             }
         }
-    }
+    }*/
 
 }
