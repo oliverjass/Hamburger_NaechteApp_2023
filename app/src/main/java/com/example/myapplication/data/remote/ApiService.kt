@@ -6,6 +6,7 @@ import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 val BASE_URL = "https://public.syntax-institut.de/apps/batch9/OliverJass/"
 
@@ -22,6 +23,9 @@ val retrofit = Retrofit.Builder()
 interface LocationApiService {
     @GET("locations.json")
     suspend fun getLocationsFromAPI(): List<Locations>
+
+    @GET("{contextPath}locations.json")
+    suspend fun getLocationsFromAPI(@Path("contextPath") contextPath: String = ""): List<Locations>
 
 }
 

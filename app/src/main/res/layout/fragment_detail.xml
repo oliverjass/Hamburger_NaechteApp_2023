@@ -47,7 +47,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="377dp"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/tv_montag"
@@ -254,7 +254,7 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/imageView2"
+                            android:id="@+id/img_gallery1"
                             android:layout_width="wrap_content"
                             android:layout_height="180dp"
                             android:layout_marginRight="24dp"
@@ -265,17 +265,17 @@
                             android:src="@drawable/baalsal" />
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/img_gallery2"
                             android:layout_width="wrap_content"
                             android:layout_height="180dp"
                             android:layout_marginBottom="50dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/baalsal" />
+                            android:src="@drawable/frau_holle" />
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/img_gallery3"
                             android:layout_width="wrap_content"
                             android:layout_height="180dp"
                             android:layout_marginLeft="24dp"
@@ -284,17 +284,19 @@
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/baalsal" />
+                            android:src="@drawable/fundbuero" />
                     </LinearLayout>
                 </HorizontalScrollView>
 
 
                 <ImageView
-                    android:id="@+id/iv_imgDetail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_imgDetailPrime"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
                     android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/baalsal"
@@ -304,13 +306,14 @@
                     android:id="@+id/tv_öffnungszeiten"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="16dp"
                     android:text="Öffnungszeiten"
                     android:textColor="@color/hngrey"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_kurzbeschreibung" />
 
@@ -325,14 +328,14 @@
                     android:textSize="28sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_imgDetail" />
+                    app:layout_constraintTop_toBottomOf="@+id/iv_imgDetailPrime" />
 
                 <TextView
                     android:id="@+id/tv_location_art_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="28dp"
                     android:text="Club"
                     android:textColor="@color/hngrey"
                     android:textSize="14sp"
@@ -349,7 +352,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="Gallerie"
                     android:textColor="@color/hngrey"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView2" />
@@ -357,14 +360,14 @@
                 <TextView
                     android:id="@+id/tv_kurzbeschreibung"
                     android:layout_width="363dp"
-                    android:layout_height="184dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:text="Der Keller-Club Baalsaal sorgt mit dem hauseigene Label „Jeudi“ für guten, undergroundigen TechHouse mit Künstlern wie Doctor Dru. Hier treffen sich Hipster und Fashionvictims zu Techno und Hosue. Öffnungszeiten: Donnerstags bis sonnabends. Eintritt: 8 bis 10 Euro.
                     --the english version--  The Keller-Club provides with the in-house label „Jeudi“ for good underground TechHouse with artists like Doctor Dru. This is where hipster and fashion victories meet techno and hosue. Opening hours: Thursdays to Saturdays. Admission: 8 to 10 Euro "
                     android:textColor="@color/hngrey"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.485"
                     app:layout_constraintStart_toStartOf="parent"
@@ -375,9 +378,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="72dp"
                     android:text="Kurzbeschreibung"
                     android:textColor="@color/hngrey"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/img_webLink" />
 
@@ -388,10 +392,13 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="20dp"
                     android:text="Reeperbahn 25, St. Pauli"
+                    android:clickable="true"
                     android:textColor="@color/hngrey"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/img_adress"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_Eintritt" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Eintritt"
+                    android:autoLink="web"
+                    android:onClick="openMapsLink"/>
 
                 <TextView
                     android:id="@+id/tv_music"
@@ -556,6 +563,21 @@
                     android:src="@drawable/ic_email"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/img_phone" />
+
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:alpha="0.6"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

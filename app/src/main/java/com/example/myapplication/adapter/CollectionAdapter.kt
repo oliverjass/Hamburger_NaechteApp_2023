@@ -1,3 +1,4 @@
+/*
 package com.example.myapplication.adapter
 
 import android.os.Parcel
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.CollectionItemBinding
 
-/*
+
 class CollectionAdapter(private val collections: List<Collection>) :
     RecyclerView.Adapter<CollectionAdapter.CollectionViewHolder>(), Parcelable {
 
@@ -34,5 +35,5 @@ class CollectionAdapter(private val collections: List<Collection>) :
 
     override fun getItemCount() = collections.size
     }
-*/
 
+*/

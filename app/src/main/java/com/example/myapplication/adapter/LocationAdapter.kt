@@ -1,19 +1,24 @@
 package com.example.myapplication.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.data.datamodels.Locations
+import coil.load
 import com.example.myapplication.databinding.LocationItemBinding
 import com.example.myapplication.ui.HomeFragmentDirections
-//import com.squareup.picasso.Picasso
+import com.example.myapplication.R
+import com.example.myapplication.data.datamodels.Locations
+import com.example.myapplication.ui.MainViewModel
 
 class LocationAdapter(
     private var dataset: List<Locations>,
     private val context: Context,
-    private val navController: NavController
+    private val navController: NavController,
+    private val mainViewModel: MainViewModel
 ) : RecyclerView.Adapter<LocationAdapter.ItemViewHolder>() {
 
     private val TECHNO_TYPE = 1
@@ -21,26 +26,71 @@ class LocationAdapter(
     private val BLACK_TYPE = 3
     private val BAR_TYPE = 4
 
-    val stringNumber = ""
-    inner class ItemViewHolder(val binding: LocationItemBinding) : RecyclerView.ViewHolder(binding.root)
+
+
+    inner class ItemViewHolder(val binding: LocationItemBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding = LocationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            LocationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+        val addBtn = holder.binding.btnAdd
 
-        with(holder.binding) {
-            tvLocationName.text = item.locationName
-            tvLocationArt.text = item.locationArt
-            tvLocationMusic.text = item.locationMusic
 
-            locationCard.setOnClickListener {
-                navController.navigate(HomeFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
+        holder.binding.tvLocationName.text = item.locationName
+        holder.binding.tvLocationArt.text = item.locationArt
+        holder.binding.tvLocationMusic.text = item.locationMusic
+        /*holder.binding.imageView.load(item.imageResource)*/
+
+        holder.binding.imageView.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg")
+
+
+        //setBtnBookmarkImage(holder.binding.btnAdd, item.isBookmarked)
+
+/*        holder.binding.btnAdd.setOnClickListener {
+            item.isBookmarked = !item.isBookmarked
+            mainViewModel.toggleFavorite(item.locationID)
+            setBtnBookmarkImage(holder.binding.btnAdd, item.isBookmarked)
+        }*/
+
+        holder.binding.btnAdd.setImageResource(
+            if (item.isBookmarked){
+                R.drawable.btn_heart_filled
+            } else {
+                R.drawable.btn_heart_outline
+            }
+        )
+
+        addBtn.setOnClickListener {
+            if (item.isBookmarked) {
+                mainViewModel.cacheLocation(item.copy(isBookmarked = false))
+                addBtn.setImageResource(R.drawable.btn_heart_filled)
+            } else {
+                mainViewModel.cacheLocations(item.copy(isBookmarked = true))
+                addBtn.setImageResource(R.drawable.btn_heart_outline)
             }
         }
+
+        holder.binding.locationCard.setOnClickListener {
+            navController.navigate(
+                HomeFragmentDirections.actionLocationFragmentToDetailFragment(
+                    item.locationID
+
+                )
+            )
+        }
+    }
+
+    override fun getItemCount(): Int {
+        Log.d("LOCATIONDATASET", "$dataset")
+        return dataset.size
     }
 
 
@@ -54,184 +104,45 @@ class LocationAdapter(
         }
     }
 
+
+
     fun newData(newList: List<Locations>) {
         dataset = newList
         notifyDataSetChanged()
     }
 
-    companion object {
-        const val TECHNO_TYPE = 1
-        const val ROCK_TYPE = 2
-        const val BLACK_TYPE = 3
-        const val BAR_TYPE = 4
-    }
-
-    override fun getItemCount(): Int {
-        //Log.d("LOCATIONDATASET","$dataset")
-        return dataset.size
-    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*fun newData(newList: List<Locations>){
-    dataset = newList
-    notifyDataSetChanged()
-
-}*/
-
-    /*    class TechnoViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-    class BlackViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-    class RockViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)
-    class BarViewHolder(val binding: LocationItemBinding): ViewHolder(binding.root)*/
-
-
-    /*    override fun getItemViewType(position: Int): Int {
-            val item = dataset[position]
-
-            return when (item.locationMusic){
-                "Techno" -> technoType
-                "Rock" -> rockType
-                "Black" -> blackType
-                "Bar" -> barType
-                else -> technoType
-            }
-        }*/
-
-/*    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return if (viewType == technoType){
-            val binding = LocationItemBinding
-                .inflate(LayoutInflater.from(parent.context),parent,false)
-            TechnoViewHolder(binding)
-
-        } else if (viewType == rockType) {
-            val binding = LocationItemBinding
-                .inflate(LayoutInflater.from(parent.context),parent,false)
-            RockViewHolder(binding)
-
-        } else if (viewType == blackType) {
-            val binding = LocationItemBinding
-                .inflate(LayoutInflater.from(parent.context),parent,false)
-            BlackViewHolder(binding)
-
+/*    private fun setBtnBookmarkImage(imgBtn: ImageButton, isBookmarked: Boolean){
+        if (isBookmarked){
+            imgBtn.setImageResource(R.drawable.btn_heart_filled)
         } else {
-        val binding = LocationItemBinding
-            .inflate(LayoutInflater.from(parent.context),parent,false)
-        BarViewHolder(binding)
-    }
-    }*/
-
-
-
-
-
-/*    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-
-        with(holder.binding) {
-            tvLocationName.text = item.locationName
-            tvLocationArt.text = item.locationArt
-            tvLocationMusic.text = item.locationMusic
-
-            locationCard.setOnClickListener {
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
-            }
+            imgBtn.setImageResource(R.drawable.btn_heart_outline)
         }
     }*/
 
-/*    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = dataset[position]
-        //Beim Haupt project eerstmal auskommentieren
-        *//*
-        val detailIntent = Intent(context,DetailFragment::class.java)
-         *//*
 
-        if (holder is TechnoViewHolder){
-            holder.binding.tvLocationName.text = item.locationName
-            holder.binding.tvLocationArt.text = item.locationArt
-            holder.binding.tvLocationMusic.text = item.locationMusic
-
-            //coil benutzen um bild zu laden
-       *//*     holder.binding.imageView.load(""){
-
-            }*//*
-            holder.binding.locationCard.setOnClickListener {
-
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
-
-                *//*detailIntent.putExtra("stringResource1",item.stringResource1)
-                detailIntent.putExtra("stringResource2",item.stringResource2)
-                detailIntent.putExtra("imageResource",item.imageResource)
-                //Beim Haupt project eerstmal auskommentieren
-                //context.startActivity(detailIntent)
-                 *//*
-            }
-        }    else  if (holder is RockViewHolder){
-            holder.binding.tvLocationName.text = item.locationName
-            holder.binding.tvLocationArt.text = item.locationArt
-            holder.binding.tvLocationMusic.text = item.locationMusic
-            //holder.binding.imageView.setImageResource(item.imageResource.length)
-            holder.binding.locationCard.setOnClickListener {
-
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
-
-                *//*detailIntent.putExtra("stringResource1",item.stringResource1)
-                detailIntent.putExtra("stringResource2",item.stringResource2)
-                detailIntent.putExtra("imageResource",item.imageResource)
-                //Beim Haupt project eerstmal auskommentieren
-                //context.startActivity(detailIntent)
-                 *//*
-            }
-        } else  if (holder is BlackViewHolder) {
-            holder.binding.tvLocationName.text = item.locationName
-            holder.binding.tvLocationArt.text = item.locationArt
-            holder.binding.tvLocationMusic.text = item.locationMusic
-            //holder.binding.imageView.setImageResource(item.imageResource.length)
-            holder.binding.locationCard.setOnClickListener {
-
-                navController.navigate(
-                    LocationFragmentDirections.actionLocationFragmentToDetailFragment(
-                        item.locationName.length
-                    )
-                )
-
-*//*                detailIntent.putExtra("stringResource1",item.stringResource1)
-                detailIntent.putExtra("stringResource2",item.stringResource2)
-                detailIntent.putExtra("imageResource",item.imageResource)*//*
-                //Beim Haupt project eerstmal auskommentieren
-                //context.startActivity(detailIntent)
-
-            }
-        } else if (holder is BarViewHolder){
-
-            holder.binding.tvLocationName.text = item.locationName
-            holder.binding.tvLocationArt.text = item.locationArt
-
-            //holder.binding.imageView.setImageResource(item.imageResource.length)
-            holder.binding.locationCard.setOnClickListener {
-
-                navController.navigate(LocationFragmentDirections.actionLocationFragmentToDetailFragment(item.locationName.length))
-*//*                                detailIntent.putExtra("stringResource1",item.stringResource1)
-                                detailIntent.putExtra("stringResource2",item.stringResource2)
-                                detailIntent.putExtra("imageResource",item.imageResource)*//*
-                //context.startActivity(detailIntent)
-            }
+class LocationDiffUtil(): DiffUtil.ItemCallback<Locations>() {
+        override fun areItemsTheSame(oldItem: Locations, newItem: Locations): Boolean {
+            return oldItem.locationID == newItem.locationID
         }
-    }*/
 
+        override fun areContentsTheSame(oldItem: Locations, newItem: Locations): Boolean {
+            return oldItem.locationName == newItem.locationName &&
+                    oldItem.locationID == newItem.locationID &&
+                    oldItem.locationMusic == newItem.locationMusic &&
+                    oldItem.webLink == newItem.webLink &&
+                    oldItem.email == newItem.email &&
+                    oldItem.adress == newItem.adress &&
+                    oldItem.phoneNr == newItem.phoneNr &&
+                    oldItem.rating == newItem.rating &&
+                    oldItem.price == newItem.price &&
+                    oldItem.locationArt == newItem.locationArt &&
+                    oldItem.openingHours == newItem.openingHours &&
+                    oldItem.isBookmarked == newItem.isBookmarked &&
+                    oldItem.locationDescription == newItem.locationDescription
+        }
 }
+}
+
+

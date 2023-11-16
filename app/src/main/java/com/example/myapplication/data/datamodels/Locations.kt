@@ -32,6 +32,8 @@ data class Locations (
     @Json(name = "webLink")
     val webLink: String,
 
+    var isBookmarked: Boolean = false,
+
     // Bilder
     @Json(name = "imageResource")
     val imageResource: String,
