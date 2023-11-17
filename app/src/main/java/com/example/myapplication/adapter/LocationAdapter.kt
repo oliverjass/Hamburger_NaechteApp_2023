@@ -43,22 +43,11 @@ class LocationAdapter(
         val item = dataset[position]
         val addBtn = holder.binding.btnAdd
 
-
         holder.binding.tvLocationName.text = item.locationName
         holder.binding.tvLocationArt.text = item.locationArt
         holder.binding.tvLocationMusic.text = item.locationMusic
-        /*holder.binding.imageView.load(item.imageResource)*/
+        holder.binding.imageView.load(item.imageResource)
 
-        holder.binding.imageView.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg")
-
-
-        //setBtnBookmarkImage(holder.binding.btnAdd, item.isBookmarked)
-
-/*        holder.binding.btnAdd.setOnClickListener {
-            item.isBookmarked = !item.isBookmarked
-            mainViewModel.toggleFavorite(item.locationID)
-            setBtnBookmarkImage(holder.binding.btnAdd, item.isBookmarked)
-        }*/
 
         holder.binding.btnAdd.setImageResource(
             if (item.isBookmarked){
@@ -106,23 +95,8 @@ class LocationAdapter(
 
 
 
-    fun newData(newList: List<Locations>) {
-        dataset = newList
-        notifyDataSetChanged()
-    }
 
-
-
-/*    private fun setBtnBookmarkImage(imgBtn: ImageButton, isBookmarked: Boolean){
-        if (isBookmarked){
-            imgBtn.setImageResource(R.drawable.btn_heart_filled)
-        } else {
-            imgBtn.setImageResource(R.drawable.btn_heart_outline)
-        }
-    }*/
-
-
-class LocationDiffUtil(): DiffUtil.ItemCallback<Locations>() {
+    class LocationDiffUtil(): DiffUtil.ItemCallback<Locations>() {
         override fun areItemsTheSame(oldItem: Locations, newItem: Locations): Boolean {
             return oldItem.locationID == newItem.locationID
         }
@@ -142,7 +116,7 @@ class LocationDiffUtil(): DiffUtil.ItemCallback<Locations>() {
                     oldItem.isBookmarked == newItem.isBookmarked &&
                     oldItem.locationDescription == newItem.locationDescription
         }
-}
+    }
 }
 
 

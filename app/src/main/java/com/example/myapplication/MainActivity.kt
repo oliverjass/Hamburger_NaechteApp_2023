@@ -19,10 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     lateinit var appRepository: AppRepository
-    lateinit var imageurl: ArrayList<String>
-/*    lateinit var sliderView: SliderView*/
-/*    lateinit var sliderAdapter: SliderAdapter*/
-/*    lateinit var collectionAdapter: CollectionAdapter*/
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,19 +29,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-    /*    sliderView = findViewById(R.id.imageSlider)*/
-
-        imageurl = ArrayList()
-        imageurl = ((imageurl + R.drawable.dot) as ArrayList<String>)
-        imageurl = ((imageurl + R.drawable.waagennbau) as ArrayList<String>)
-        imageurl = ((imageurl + R.drawable.ubel_und_gefaehrlich) as ArrayList<String>)
-
-        /*sliderAdapter = SliderAdapter(imageurl)*/
-/*        sliderView.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
-        sliderView.setSliderAdapter(sliderAdapter)
-        sliderView.scrollTimeInSec = 3
-        sliderView.isAutoCycle = true
-        sliderView.startAutoCycle()*/
 
         val navHostFragment: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment

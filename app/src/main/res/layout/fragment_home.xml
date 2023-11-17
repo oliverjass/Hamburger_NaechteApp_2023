@@ -24,41 +24,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-<!--                <include
-                    layout="@layout/collection_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="561dp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_kategorie1"/>-->
 
-<!--                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="413dp"
-                    android:layout_height="280dp"
-                    android:src="@drawable/katze"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />-->
-
-                <include
-                    android:id="@+id/slide_show"
-                    layout="@layout/slideshow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_beschreibung"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
-                    android:text="Rein ins Getümmel der Clublandschaft."
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Rein ins Getümmel der Clublandschaft.
+                    Stadt Hamburg"
                     android:textColor="@color/hngrey"
-                    android:textSize="20sp"
+                    android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/slide_show" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_techno"
@@ -72,24 +53,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_beschreibung" />
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_techno"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="2dp"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            tools:itemCount="3"
-                            tools:listitem="@layout/location_item"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_techno"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_techno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:padding="2dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_techno"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/location_item" />
+
                 <TextView
                     android:id="@+id/tv_rock"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     android:text="Rock CLubs"
                     android:textColor="@color/hngrey"
                     android:textSize="24sp"
@@ -98,11 +81,15 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_rock"
+                    android:backgroundTint="@color/hnblue2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal"
                     android:padding="2dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_rock"
                     tools:itemCount="3"
                     tools:listitem="@layout/location_item" />
@@ -112,19 +99,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
                     android:text="Black Music CLubs"
                     android:textColor="@color/hngrey"
                     android:textSize="24sp"
-                    app:layout_constraintTop_toBottomOf="@id/rv_rock"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_rock" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal"
                     android:padding="2dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_black"
                     tools:itemCount="3"
                     tools:listitem="@layout/location_item" />
@@ -134,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     android:text="Bars"
                     android:textColor="@color/hngrey"
                     android:textSize="24sp"
@@ -145,11 +136,29 @@
                     android:id="@+id/rv_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal"
                     android:padding="2dp"
-                    tools:itemCount="3"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/tv_bar"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_bar"
+                    tools:itemCount="3"/>
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:src="@drawable/img_insta"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_bar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

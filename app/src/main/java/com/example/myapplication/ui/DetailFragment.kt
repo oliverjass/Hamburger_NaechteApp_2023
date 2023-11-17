@@ -43,7 +43,7 @@ class DetailFragment : Fragment() {
 
                 with(binding) {
 
-/*                    ivImgDetailPrime.load(it.imageResource) {
+                    ivImgDetailPrime.load(it.imageResource) {
                         this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
                         this.error(R.drawable.ic_no_image)
                         this.crossfade(true)
@@ -62,31 +62,6 @@ class DetailFragment : Fragment() {
                         this.crossfade(2000)
                     }
                     imgGallery3.load(it.locationImg3) {
-                        this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
-                        this.error(R.drawable.ic_no_image)
-                        this.crossfade(true)
-                        this.crossfade(2000)
-                    }*/
-
-                    ivImgDetailPrime.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg") {
-                        this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
-                        this.error(R.drawable.ic_no_image)
-                        this.crossfade(true)
-                        this.crossfade(2000)
-                    }
-                    imgGallery1.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg") {
-                        this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
-                        this.error(R.drawable.ic_no_image)
-                        this.crossfade(true)
-                        this.crossfade(2000)
-                    }
-                    imgGallery2.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg") {
-                        this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
-                        this.error(R.drawable.ic_no_image)
-                        this.crossfade(true)
-                        this.crossfade(2000)
-                    }
-                    imgGallery3.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg") {
                         this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
                         this.error(R.drawable.ic_no_image)
                         this.crossfade(true)

@@ -16,7 +16,6 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     val dao = getDatabase(app).dao
     val appRepository = AppRepository(LocationApi.retrofitService,dao )
     val cachedLocations: LiveData<List<Locations>> = appRepository.cachedLocations
-/*    private lateinit var bookmarkedLocations: LiveData<List<Locations>>*/
     val bookmarkedLocations: LiveData<List<Locations>> = appRepository.getBookmarkedLocations()
     private var _location: LiveData<Locations>? = null
 
@@ -50,20 +49,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
 
 
-    fun loadLocationListVM(locationId: Int): LiveData<Locations> {
-        viewModelScope.launch(Dispatchers.IO) {
-            _location = appRepository.getLocations(locationId)
 
-        }
-        return appRepository.getLocation(locationId)
-    }
-
-
-    fun markLocationAsFavorite(locationID: Int) {
-        viewModelScope.launch {
-            appRepository.markLocationAsFavorite(locationID)
-        }
-    }
 
 
 
@@ -79,58 +65,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun toggleFavorite(locationId: Int){
-        viewModelScope.launch {
-            appRepository.toggleFavorite(locationId)
-        }
-    }
+
 }
 
-
-
-
-
-
-    // allLocations ungefiltert
-
-
-
-    //val allLocations = appRepository.loadLoactions()
-    /*fun getLocationByName(locationName: Int): Locations?{
-        // Die funktion braucht zugriff aller locations -  val alllocations
-        // Brauch einen Location name nachdem er gesucht wird - locationName
-
-        val locationName = allLocations.find { it.data == locations }
-        return
-        // er soll die location zurückgeben gebündelt von typ Location
-    }
-
-     */
-
-
-    //Update zur LiveData
-/*    fun selectAll(){
-        _locations.postValue(allLocations)
-    }
-    fun selectBars() {
-        _locations.postValue(allLocations.filter { it.isBar })
-    }
-
-    fun selectClubs():List<Locations> {
-         _locations.postValue(allLocations.filter { it.isBar })
-        return selectClubs()
-    }
-
-    init {
-        _locations.postValue(appRepository.loadLoactions())
-    }*/
-
-
-/*    init {
-        viewModelScope.launch(Dispatchers.IO) {
-            appRepository.loadLocationListRepository()
-        }
-    }*/
 
 
 

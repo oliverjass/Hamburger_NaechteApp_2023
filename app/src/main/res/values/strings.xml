@@ -4,6 +4,7 @@
     <string name="event_fragment">Events</string>
     <string name="favs">Favs</string>
     <string name="profile_fragment">Profil</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

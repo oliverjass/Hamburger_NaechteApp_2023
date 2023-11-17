@@ -19,17 +19,12 @@ class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
     fun getLocations(locationId: Int): LiveData<Locations> = dao.getLocationById(locationId)
 
 
-    fun markLocationAsFavorite(locationID: Int) {
-        // Hier wird die DAO-Methode aufgerufen, um den isBookmarked-Status zu aktualisieren
-        dao.updateBookmarkStatus(locationID, true)
-    }
+
 
     // Beispiel, um alle favorisierten Locations aus der Datenbank abzurufen
     fun getBookmarkedLocations(): LiveData<List<Locations>> {
         return dao.getBookmarkedLocations()
     }
-
-
 
 
     suspend fun insertLocation(locations: Locations){
@@ -42,15 +37,16 @@ class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
 
 
 
-
     suspend fun loadLocationListRepository(){
         val loadedLocations = api.getLocationsFromAPI()
         Log.d("ApiData","hier ist die location $loadedLocations")
         for( location in loadedLocations){
             insertLocation(location)
         }
-        /*insertLocation(loadedLocations)*/
     }
+
+
+
     class LocationDiffUtil : DiffUtil.ItemCallback<Locations>() {
         override fun areItemsTheSame(oldItem: Locations, newItem: Locations): Boolean {
             return oldItem.locationID == newItem.locationID
@@ -72,28 +68,13 @@ class AppRepository(val api: LocationApiService, val dao: AppDataBaseDao) {
     }
 
 
-    suspend fun toggleFavorite(locationId: Int){
-
-/*        var location = getLocation(locationId).value!!
-        location.isBookmarked = !location.isBookmarked
-        insertLocation(location)*/
-    }
-
-
     fun getLocation(locationId: Int): LiveData<Locations> {
         return dao.getLocationById(locationId)
     }
 
 }
 
-/*    suspend fun loadLocationDetails(locationId: Int) {
-        try {
-            val loadedLocation = api.getLocationsFromAPI(locationId)
-            insertLocation(loadedLocation)
-        } catch (ex: Exception) {
-            Log.e("Repository", "Fehler beim Laden von Location-Details: $ex")
-        }
-    }*/
+
 
 
 

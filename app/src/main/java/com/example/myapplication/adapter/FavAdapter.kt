@@ -19,15 +19,11 @@ class FavAdapter(
 ): ListAdapter<Locations, FavAdapter.ItemViewHolder>(LocationAdapter.LocationDiffUtil()) {
     inner class ItemViewHolder(private val itemLayoutBinding: FavItemBinding): RecyclerView.ViewHolder(itemLayoutBinding.root) {
 
+
+
         fun connect(item: Locations) {
             with (itemLayoutBinding) {
-/*                imageView.load(item.imageResource) {
-                    this.error(R.drawable.ic_no_image)
-                    this.placeholder(Utils.createCircularProgressDrawable(context))
-                    this.crossfade(true)
-                    this.crossfade(1000)
-                }*/
-                imageView.load("https://szene-hamburg.com/wp-content/uploads/2023/04/244414733_10158695928653163_7142350765114644475_n-1440x869.jpg") {
+                imageView.load(item.imageResource) {
                     this.error(R.drawable.ic_no_image)
                     this.placeholder(Utils.createCircularProgressDrawable(context))
                     this.crossfade(true)

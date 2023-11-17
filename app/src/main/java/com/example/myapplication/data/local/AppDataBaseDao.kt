@@ -22,7 +22,7 @@ interface AppDataBaseDao {
     fun getLocationByIdSync(locationID: Int): Locations?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLocation(locations: Locations)
+    fun insertLocation(locations: Locations)
 
     @Transaction
     suspend fun upsertLocation(location: Locations) {

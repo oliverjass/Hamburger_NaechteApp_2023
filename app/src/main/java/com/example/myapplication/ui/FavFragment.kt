@@ -19,10 +19,7 @@ class FavFragment : Fragment() {
     private val favLayoutBinding: FragmentFavBinding by lazy { FragmentFavBinding.inflate(layoutInflater)}
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var bookmarkedLocations: LiveData<List<Locations>>
-
     private lateinit var favAdapter: FavAdapter
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +27,6 @@ class FavFragment : Fragment() {
     ): View {
         return favLayoutBinding.root
     }
-
-
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
