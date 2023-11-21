@@ -21,6 +21,11 @@ class FavFragment : Fragment() {
     private lateinit var bookmarkedLocations: LiveData<List<Locations>>
     private lateinit var favAdapter: FavAdapter
 
+
+    //TODO Hier Kommentieren
+
+                                                                                                    // Layout binding für die UI benutzeroberfläche
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,10 +34,12 @@ class FavFragment : Fragment() {
     }
 
 
+
+    //TODO Hier Kommentieren
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+                                                                                                    // adapter wird herbeigerufen um diese funktion in diesen fragment zu benutzen
 
         favAdapter = FavAdapter(viewModel, this.requireContext())
 
@@ -43,6 +50,8 @@ class FavFragment : Fragment() {
                 adapter = favAdapter
             }
         }
+
+                                                                                                    //daten werden durch der methode der submit list automatisch die daten in der liste zu übergeben und zu aktualisieren. zudem wird in der datenbank miteingegeben. dabei wird die klasse mit eingenommen ob das objekt gebookmarked ist
 
         viewModel.cachedLocations.observe(viewLifecycleOwner) { locations ->
             favAdapter.submitList(locations.filter { locations -> locations.isBookmarked })

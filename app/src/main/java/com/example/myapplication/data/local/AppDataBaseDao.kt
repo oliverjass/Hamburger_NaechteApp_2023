@@ -13,19 +13,19 @@ import com.example.myapplication.data.datamodels.Locations
 interface AppDataBaseDao {
 
     @Query("SELECT * FROM Locations ")
-    fun getAllLocations(): LiveData<List<Locations>>
+    fun getAllLocations(): LiveData<List<Locations>>                                                //stellt alle Elemente der Location Tabelle als LiveData zur Verfügung
 
-    @Query("SELECT * FROM Locations WHERE locationID = :locationID")
-    fun getLocationById(locationID: Int) : LiveData<Locations>
+    @Query("SELECT * FROM Locations WHERE locationID = :locationID")                                // Diese Funktion makiert die ids der locations und gibt ein LiveData zurück, das eine oder keine Locations Instanz. enthält, abhängig von der Abfrage ergebnis.
+    fun getLocationById(locationID: Int) : LiveData<Locations>                                      // Asynchron, bedeutet aber das die benutzeroberfläche automatisch aktualisiert wird.
 
-    @Query("SELECT * FROM Locations WHERE locationID = :locationID")
+    @Query("SELECT * FROM Locations WHERE locationID = :locationID")                                // Diese Funktion makiert die ids der locations und gibt eine Instanz oder null zurück (Synchrone blockierende Methode)
     fun getLocationByIdSync(locationID: Int): Locations?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertLocation(locations: Locations)
+    fun insertLocation(locations: Locations)                                                        // speichert eine Liste an locations in die Datenbank falls ein Eintrag mit derselben id existiert wird dieser überschrieben
 
     @Transaction
-    suspend fun upsertLocation(location: Locations) {
+    suspend fun upsertLocation(location: Locations) {                                               // Update der locations und wird mit der daten von den locations Synchronisiert
         val existingLocation = getLocationByIdSync(location.locationID)
         if (existingLocation == null) {
             insertLocation(location)
@@ -35,20 +35,11 @@ interface AppDataBaseDao {
     }
 
     @Update
-    fun updateLocation(location: Locations)
+    fun updateLocation(location: Locations)                                                         // Funktion für den upsertlocation (überflüssiger code)
 
 
-    @Query("SELECT * FROM Locations")
-    fun saveLocation(): LiveData<Locations>
-
-    @Query("UPDATE Locations SET isBookmarked = :isBookmarked WHERE locationID = :locationID")
-    fun updateBookmarkStatus(locationID: Int, isBookmarked: Boolean)
-
-
-    @Query("SELECT * FROM Locations WHERE isBookmarked = 1")
+    @Query("SELECT * FROM Locations WHERE isBookmarked = 1")                                        // Diese funktion ruft alle Orte aus der Datenbank ab, die als "gebookmarked" markiert sind, und gibt diese als LiveData zurück, was für die Beobachtung von Änderungen in der Benutzeroberfläche nützlich ist.
     fun getBookmarkedLocations(): LiveData<List<Locations>>
-
-
 
 
 

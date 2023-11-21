@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     private val locationId: Int = 1
 
 
-
+                                                                                                    //das Layout wird hierbeigerufen und binding eingesetzt
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -29,6 +29,8 @@ class HomeFragment : Fragment() {
     }
 
 
+
+                                                                                                    // Filter der Itemelementen mit der verknüpfung der daten von setupRecyclerview. wenn das eingegebene element den gleichen vorrausgegebenden wert gibt, wird er aufgeteilt
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.cachedLocations.observe(viewLifecycleOwner) { location ->
@@ -40,6 +42,7 @@ class HomeFragment : Fragment() {
     }
 
 
+                                                                                                    // Hier werden die inhalte des locations mit logik und navigationsfunktionen allgemein herbeigerufen und in der onviewcreated den filter funktionarbarer zu machen.
     private fun setupRecyclerView(recyclerView: RecyclerView, dataset: List<Locations>) {
         recyclerView.adapter = LocationAdapter(
             dataset = dataset,
@@ -48,11 +51,5 @@ class HomeFragment : Fragment() {
             mainViewModel = viewModel
         )
     }
-
-
-
-
-
-
 
 }

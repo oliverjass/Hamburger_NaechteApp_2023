@@ -23,28 +23,34 @@ class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
     private val viewModel: MainViewModel by activityViewModels()
-    private val args: DetailFragmentArgs by navArgs()
+    private val args: DetailFragmentArgs by navArgs()                                               // navArgs ist eine Funktion, die das Übergeben von Daten zwischen verschiedenen Fragments in einer Android-Anwendung erleichtert. Sie automatisch generiert eine Klasse, die die Argumente repräsentiert, die ich in einem Navigation Graph definiert habe.
 
 
-
+                                                                                                    //Zur verwendung viewBinding wird sie in der UI benutzeroberfläche erstellt.Es verwendet das FragmentDetailBinding-Objekt, um auf die Ansichtselemente des Fragments zuzugreifen, und gibt dann das Wurzelelement dieser Ansicht als Ergebnis der onCreateView-Funktion zurück.
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? { binding = FragmentDetailBinding.inflate(inflater)
         return binding.root
     }
 
 
+
+                                                                                                    // Eine Funktion mit den inhalt der Details des items.v
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val locationId: Int = args.locationId
+        val id: Int = args.locationId                                                               //anhand wird der navArgs inbezug auf die id der location gespeichert um sicherzustellen, dass dieser ausgewählter element richtig navigiert wird
 
-        viewModel.loadLocationDetailsVM(locationId).observe(viewLifecycleOwner) { locations ->
+
+                                                                                                    //der gesamte ihnhalt von der detail mit der logik von VM  wird geladen. zudem wird er der lebenszyklus observed mit der datenbank eingefügt
+        viewModel.loadDetail(id).observe(viewLifecycleOwner) { locations ->
             locations?.let {
-                viewModel.insertLocation(it)
+                viewModel.insertLocation(it)                                                        //zugriff auf die datenbank vom detail während das objekt durchgeführt wird
+
 
                 with(binding) {
-
+                                                                                                    // Bild wird mit coil geladen
                     ivImgDetailPrime.load(it.imageResource) {
-                        this.placeholder(Utils.createCircularProgressDrawable(requireContext()))
+                        this.placeholder(Utils.createCircularProgressDrawable(requireContext()))    // bilder mit einen LadeIndikator und Platzhalter falls das bild nicht geladen ist bzw die daten nicht geladen werden können
                         this.error(R.drawable.ic_no_image)
                         this.crossfade(true)
                         this.crossfade(2000)
@@ -67,9 +73,13 @@ class DetailFragment : Fragment() {
                         this.crossfade(true)
                         this.crossfade(2000)
                     }
+
+                                                                                                    // Zurückbutton der zum home zurückgnavigiert wurde
                     backButton.setOnClickListener{
                         it.findNavController().navigateUp()
                     }
+
+                                                                                                    //Text elementen werden im detail geladen
                     tvDaytime.text = it.openingHours
                     tvAdress.text = it.adress
                     tvWebLink.text = it.webLink
@@ -83,7 +93,7 @@ class DetailFragment : Fragment() {
                     tvPhoneNr.text = it.phoneNr
                 }
             } ?: run {
-                Log.d("DetailFragment", "Location ist null")
+                Log.d("DetailFragment", "Location ist null")                               //Log.d wenn die daten nicht geladen werden können
             }
         }
     }

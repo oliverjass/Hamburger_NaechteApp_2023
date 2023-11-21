@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
 
 @Entity
 data class Locations (
-    @Json(name = "locationID")
+    @Json(name = "locationID")                                                                      // für den moshiConverter anmerken welche Variable im JSON gemeint ist
     @PrimaryKey
     val locationID: Int,
     @Json(name = "locationName")
@@ -43,6 +43,8 @@ data class Locations (
     val locationImg2: String,
     @Json(name = "locationImg3")
     val locationImg3: String
+
+
 
 
 

@@ -13,7 +13,7 @@ abstract class AppDatabase : RoomDatabase() {
 
 private lateinit var INSTANCE: AppDatabase
 
-// if there's no Database a new one is built
+                                                                                                    // hier wird eine Datenbank namens location_database erstellt und eine Tabelle aus der Location Klasse erstellt
 fun getDatabase(context: Context): AppDatabase {
     synchronized(AppDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
@@ -22,7 +22,7 @@ fun getDatabase(context: Context): AppDatabase {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
-                "app_database"
+                "location_database"
             )
                 .build()
         }
